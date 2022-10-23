@@ -1,4 +1,6 @@
-﻿namespace WFdataBinding
+﻿using System.Reflection;
+
+namespace WFdataBinding
 {
     partial class Form3
     {
@@ -36,7 +38,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "Form3";
-            this.Text = "Form3";
+            this.Text = Assembly.GetExecutingAssembly()?.GetName()?.Version.ToString();
+            
             this.ResumeLayout(false);
 
         }

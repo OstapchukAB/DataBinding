@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WFdataBinding
 {
@@ -13,7 +8,10 @@ namespace WFdataBinding
     public class DemoCustomer1 : INotifyPropertyChanged
     {
         // These fields hold the values for the public properties.
-        private Guid idValue = Guid.NewGuid();
+        // private Guid idValue = Guid.NewGuid();
+      //  static int idd;
+       private Guid idValue = Guid.NewGuid();
+       
         private string customerNameValue = String.Empty;
         private string phoneNumberValue = String.Empty;
 
@@ -27,15 +25,17 @@ namespace WFdataBinding
             if (PropertyChanged != null)
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+                MessageBox.Show($"{DateTime.Now.ToString()}\n{propertyName}\n{this.idValue}");  
             }
         }
 
         // The constructor is private to enforce the factory pattern.
-        private DemoCustomer1()
+        public DemoCustomer1()
         {
             customerNameValue = "Customer";
             phoneNumberValue = "(312)555-0100";
         }
+       
 
         // This is the public factory method.
         public static DemoCustomer1 CreateNewCustomer()
